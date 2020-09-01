@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+</head>
+
+<body>
+<h1>Chat App</h1>
+<div th:each="chatMessage: ${chats}">
+    <span th:text="{chatMessage.username}">Username</span>
+    <span th:text="{chatMessage.messageText}">Message</span>
+</div>
+<form action="#" th:object="${chatForm}" method="POST" th:action="@{/chat}">
+    <label for="username">Username:</label>
+    <input id="username" type="text" th:field="*{username}">
+    <label for="messageText">Message Text:</label>
+    <input id="messageText" type="text" th:field="*{messageText}">
+    <label for="messageType">Message Type: </label>
+    <select id="messageType" th:field="*{messageType}">
+        <option selected value="Say">Say</option>
+        <option value="Shout">Shout</option>
+        <option value="Whisper">Whisper</option>
+    </select>
+    <input type="submit">
+</form>
+</body>
+</html>
