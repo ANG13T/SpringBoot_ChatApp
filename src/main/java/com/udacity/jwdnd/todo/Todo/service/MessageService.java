@@ -1,5 +1,6 @@
 package com.udacity.jwdnd.todo.Todo.service;
 
+import com.udacity.jwdnd.todo.Todo.mapper.MessageMapper;
 import com.udacity.jwdnd.todo.Todo.model.ChatForm;
 import com.udacity.jwdnd.todo.Todo.model.ChatMessage;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,12 @@ public class MessageService {
     @PostConstruct
     public void postConstruct(){
         this.messages = new ArrayList<>();
+    }
+
+    private MessageMapper messageMapper;
+
+    public MessageService(MessageMapper mapper){
+        this.messageMapper = mapper;
     }
 
     public void addMessage(ChatForm chatForm){
@@ -35,12 +42,12 @@ public class MessageService {
 
 
         ChatMessage newMessage = new ChatMessage(message, chatForm.getUsername());
-        this.messages.add(newMessage);
+        messageMapper.addMessage(newMessage);
         System.out.println("the messages ");
         System.out.println(this.messages);
     }
 
     public List<ChatMessage> getMessages(){
-        return messages;
+        return messageMapper.getAllMessages();
     }
 }
