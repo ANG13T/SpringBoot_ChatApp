@@ -1,5 +1,7 @@
-package com.udacity.jwdnd.todo.Todo;
+package com.udacity.jwdnd.todo.Todo.service;
 
+import com.udacity.jwdnd.todo.Todo.model.ChatForm;
+import com.udacity.jwdnd.todo.Todo.model.ChatMessage;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
