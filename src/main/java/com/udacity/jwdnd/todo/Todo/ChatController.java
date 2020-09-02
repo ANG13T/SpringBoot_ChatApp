@@ -19,14 +19,16 @@ public class ChatController {
 
     @GetMapping
     public String getHome(ChatForm chatForm, Model model){
-        model.addAttribute("chats", this.messageService.getMessages());
+        System.out.println("Get req sent");
+        model.addAttribute("messages", this.messageService.getMessages());
         return "chat";
     }
 
     @PostMapping
     public String postHome(ChatForm chatForm, Model model){
+        System.out.println("POST req sent");
         messageService.addMessage(chatForm);
-        model.addAttribute("chats", messageService.getMessages());
+        model.addAttribute("messages", messageService.getMessages());
         chatForm.setMessageText("");
         return "chat";
     }

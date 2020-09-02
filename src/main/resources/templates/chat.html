@@ -13,8 +13,8 @@
 <body>
 <h1>Chat App</h1>
 <div th:each="chatMessage: ${messages}">
-    <span th:text="{chatMessage.username}">Username</span>
-    <span th:text="{chatMessage.messageText}">Message</span>
+    <span th:text="${chatMessage.username}">Username</span>
+    <span th:text="${chatMessage.messageText}">Message</span>
 </div>
 <form action="#" th:object="${chatForm}" method="POST" th:action="@{/chat}">
     <label for="username">Username:</label>
@@ -23,9 +23,9 @@
     <input id="messageText" type="text" th:field="*{messageText}">
     <label for="messageType">Message Type: </label>
     <select id="messageType" th:field="*{messageType}">
-        <option selected value="Say">Say</option>
-        <option value="Shout">Shout</option>
-        <option value="Whisper">Whisper</option>
+        <option selected value="Say" text="Say">Say</option>
+        <option value="Shout" text="Shout">Shout</option>
+        <option value="Whisper" text="Whisper">Whisper</option>
     </select>
     <input type="submit">
 </form>

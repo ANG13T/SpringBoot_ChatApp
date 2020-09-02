@@ -18,17 +18,24 @@ public class MessageService {
     public void addMessage(ChatForm chatForm){
 
        String message = chatForm.getMessageText();
-       switch(chatForm.getMessageType()){
-           case "Shout":
-                message = message.toUpperCase();
-                break;
-           case "Whisper":
-               message = message.toLowerCase();
-               break;
-       }
+        System.out.println("form message " + message);
+        if(chatForm.getMessageType() != null){
+            switch(chatForm.getMessageType()){
+                case "Shout":
+                    message = message.toUpperCase();
+                    break;
+                case "Whisper":
+                    message = message.toLowerCase();
+                    break;
+            }
+        }
+
+
 
         ChatMessage newMessage = new ChatMessage(message, chatForm.getUsername());
         this.messages.add(newMessage);
+        System.out.println("the messages ");
+        System.out.println(this.messages);
     }
 
     public List<ChatMessage> getMessages(){
