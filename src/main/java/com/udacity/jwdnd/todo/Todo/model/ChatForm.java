@@ -9,7 +9,7 @@ public class ChatForm {
         this.messageText = messageText;
     }
 
-    public String setUsername(String username){
+    public void setUsername(String username){
         this.username = username;
     }
 

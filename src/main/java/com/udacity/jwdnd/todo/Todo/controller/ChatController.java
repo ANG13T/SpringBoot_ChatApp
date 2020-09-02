@@ -2,6 +2,7 @@ package com.udacity.jwdnd.todo.Todo.controller;
 
 import com.udacity.jwdnd.todo.Todo.model.ChatForm;
 import com.udacity.jwdnd.todo.Todo.service.MessageService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
