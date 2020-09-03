@@ -19,15 +19,17 @@
 <form action="#" th:object="${chatForm}" method="POST" th:action="@{/chat}">
     <label for="username">Username:</label>
     <input id="username" type="text" th:field="*{username}">
+
     <label for="messageText">Message Text:</label>
     <input id="messageText" type="text" th:field="*{messagetext}">
+
     <label for="messageType">Message Type: </label>
     <select id="messageType" th:field="*{messageType}">
         <option selected value="Say" text="Say">Say</option>
         <option value="Shout" text="Shout">Shout</option>
         <option value="Whisper" text="Whisper">Whisper</option>
     </select>
-    <input type="submit">
+    <input id="submit-button" type="submit" value="Submit" />
 </form>
 </body>
 </html>
